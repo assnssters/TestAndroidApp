@@ -1,22 +1,31 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+plugins {
+    id 'com.android.application'
+}
 
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
+android {
+    namespace "com.defgallium.terminal"
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.defgallium.terminal"
+        minSdk 21
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-    dependencies {
-        classpath "com.android.tools.build:gradle:8.5.2"
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
     }
 }
 
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
-
-task clean(type: Delete) {
-    delete rootProject.buildDir
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 }
