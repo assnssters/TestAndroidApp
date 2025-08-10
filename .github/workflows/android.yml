@@ -24,6 +24,9 @@ jobs:
       working-directory: galliapp
       run: chmod +x gradlew
 
+    - name: Set up Gradle
+      uses: gradle/actions/setup-gradle@v3
+
     - name: Build Debug APK
       working-directory: galliapp
       run: ./gradlew assembleDebug
